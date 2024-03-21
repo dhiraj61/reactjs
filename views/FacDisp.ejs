@@ -1,0 +1,40 @@
+<!-- views/faculty.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty List</title>
+    <style>
+    
+      .card{
+        display: inline-block;
+        border: 2px solid black;
+      }
+      .card-img {
+        width: 100%;
+        height: auto;
+      }
+     
+    </style>
+</head>
+<body>
+  
+    <h1>Faculty List</h1>
+    <ul>
+        <% facultyList.forEach(function(faculty) { %>
+          <div class="card" style="width: 18rem;">
+          
+            <div class="card-body">
+              <img class="card-img" src="/<%= faculty.img %>" alt="image not found">
+              <h5 class="card-title"><span><%= faculty.name %></span></h5><br>
+              <h5 class="card-title"><span><%= faculty.age %></span></h5><br>
+              <h5 class="card-title"><span><%= faculty.experience %></span></h5><br>
+              <h5 class="card-title"><span><%= faculty.address %></span></h5><br>
+            </div>
+          </div>
+        <% }); %>
+    </ul>
+    
+</body>
+</html>
