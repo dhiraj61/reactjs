@@ -46,7 +46,15 @@ app.get("/", (req, res) => {
 app.post("/fac", upload.single("img"), async (req, res) => {
   const { name, email, phone, age, experience, address } = req.body;
   const img = req.file ? req.file.filename : null;
-  const faculty = new Faculty(req.body);
+  const faculty = new Faculty({
+    name,
+    email,
+    phone,
+    age,
+    experience,
+    address,
+    img,
+  });
   const result = await faculty.save();
   if (result) {
     res.send(
@@ -58,7 +66,15 @@ app.post("/fac", upload.single("img"), async (req, res) => {
 app.post("/addstud", upload1.single("img"), async (req, res) => {
   const { name, email, phone, age, experience, address } = req.body;
   const img = req.file ? req.file.filename : null;
-  const student = new Student(req.body);
+  const student = new Student({
+    name,
+    email,
+    phone,
+    age,
+    experience,
+    address,
+    img,
+  });
   const result = await student.save();
   if (result) {
     res.send(
